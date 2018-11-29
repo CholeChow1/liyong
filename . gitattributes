@@ -1,11 +1,1 @@
-*.js linguist-language=java
-
-*.css linguist-language=java
-
-*.html linguist-language=java
-
-*.jpg linguist-language=java
-
-*.mp3 linguist-language=java
-
-*.jpeg linguist-language=java
+*.js linguist-language=html

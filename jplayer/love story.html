@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>jplayer实现歌词同步的JS音乐播放器效果</title>
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.4">
+<meta name="MobileOptimized" content="240">
+
+<link href="css/blue.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="js/lrc.js"></script>
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	outline:none;
+}
+ul, ol, dl {
+	list-style: none;
+}
+
+.music_box{margin:50px auto;width:422px;}
+.content {width: 402px;height:200px;overflow:hidden;padding:10px;background:#ccc;}
+#lrc_list{margin:10px auto;background:#ccc;}
+#lrc_list li{font:normal 14px/2.1 'microsoft yahei';text-align:center;}
+#lrc_list li.hover {color:red;font-weight:bold;}
+</style>
+
+<script>
+//<![CDATA[
+$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				mp3:"../Taylor Swift - Love Story [mqms2].mp3" //mp3的播放地址
+			});
+		},
+		timeupdate: function(event) {
+			if(event.jPlayer.status.currentTime==0){
+				time = "";
+			}else {
+				time = event.jPlayer.status.currentTime;
+			}
+		},
+		play: function(event) {
+			//点击开始方法调用lrc。start歌词方法 返回时间time
+			$.lrc.start($('#lrc_content').val(), function() {
+				return time;
+			});
+		},
+		ended:function(event){
+			$("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+		},
+		swfPath: "/js",  		//存放jplayer.swf的决定路径
+		solution:"html, flash", //支持的页面
+		supplied: "mp3",		//支持的音频的格式
+		wmode: "window"
+	});
+});
+//]]>
+</script>
+</head>
+<body background="../背景10.jpg">
+	<h1 align="center"><font color="#EC681A">Love Story-泰勒斯威夫特</font></h1>
+	<div>
+<textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;"> 
+	[00:01.14]Love Story(爱情故事)-Taylor Swift
+[00:16.53]We were both young when I first saw you
+[00:20.16]I close my eyes and the flashback starts
+[00:23.76]I'm standing there on a balcony in summer air
+[00:32.49]See the lights, see the party, the ball gowns
+[00:36.60]See you make your way through the crowd
+[00:40.06]And say hello, little did I know
+[00:48.58]That you were Romeo, you were throwing pebbles
+[00:52.47]And my daddy said stay away from Juliet
+[00:55.91]And I was crying on the staircase, begging you please don't go
+[01:02.91]And I said
+[01:04.63]Romeo take me somewhere we can be alone
+[01:08.79]I'll be waiting, all there's left to do is run
+[01:12.79]You'll be the prince and I'll be this princess
+[01:16.86]It's a love story
+[01:18.73]Baby, just say yes
+[01:21.62]
+[01:24.82]So I sneak out to the garden to see you
+[01:28.97]We keep quiet 'cause we're dead if they knew
+[01:32.51]So close your eyes, escape this town for a little while
+[01:38.98]Oh, oh, oh
+[01:40.78]'Cause you were Romeo, I was a scarlet letter
+[01:44.70]And my daddy said stay away from Juliet
+[01:48.30]But you were everything to me, I was begging you please don't go
+[01:55.50]And I said
+[01:57.08]Romeo take me somewhere we can be alone
+[02:01.21]I'll be waiting, all there's left to do is run
+[02:05.26]You'll be the prince and I'll be the princess
+[02:09.30]It's a love story
+[02:11.30]Baby, just say yes
+[02:13.19]Romeo save me try to tell me how it feels
+[02:17.65]this might be stupid boy, but its so real
+[02:21.44]Don't be afraid now we'll get out of this mess
+[02:25.39]It's a love story
+[02:27.25]Baby, just say yes
+[02:29.58]
+[02:44.68]I got tired of waiting wondering if you were ever coming around
+[02:52.41]my faith in you is better
+[02:57.25]When I met you on the outskirts of town
+[03:00.70]And I said
+[03:01.61]Romeo save me ive been feeling so alone
+[03:05.69]Ill keep waiting for you but you never come
+[03:09.69]Is this in my head, I don't know what to think
+[03:13.75]he fell to the ground and pulled out a ring
+[03:17.27]And said
+[03:17.83]Marry me Juliet you'll never have to be alone
+[03:21.77]I love you and that's all I really know
+[03:25.81]I talked to your dad you'll pick out a white dress
+[03:29.85]It's a love story
+[03:31.90]Baby, just say yes
+[03:36.67]
+[03:37.59]Oh, oh, oh
+[03:45.97]We were both young when I first saw you
+</textarea>
+<div class="music_box">
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio">
+  <div class="jp-type-single">
+    <div class="jp-gui jp-interface">
+      <ul class="jp-controls">
+        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+        <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+        <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+        <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+        <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+      </ul>
+      <div class="jp-progress">
+        <div class="jp-seek-bar">
+          <div class="jp-play-bar"></div>
+        </div>
+      </div>
+      <div class="jp-volume-bar">
+        <div class="jp-volume-bar-value"></div>
+      </div>
+      <div class="jp-time-holder">
+        <div class="jp-current-time"></div>
+        <div class="jp-duration"></div>
+        <ul class="jp-toggles">
+          <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+          <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="jp-title">
+      <ul>
+        <li>源码之家</li>
+      </ul>
+    </div>
+    <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+  </div>
+</div>
+<div class="content">
+    <ul id="lrc_list">
+    	<li>点击开始播放……</li>
+    </ul>
+</div>
+</div>
+
+		
+</body>
+</html>

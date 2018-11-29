@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="gbk"/>
+	<title></title>
+	<style>
+		li{
+			list-style-type:none;
+			margin:5px;
+		}
+		a{
+			text-decoration:none;
+			color:blue;
+		}
+		#musicTitle{
+			font-size:30px;
+		}
+	</style>
+	<script src="jquery-1-7-2.js"></script>
+	<script>
+		//音乐资源
+		var myMusics = new Array(
+			{src:"../周杰伦 - Mine Mine [mqms2].mp3",title:"Mine Mine"},
+			{src:"../周杰伦 - 爱情废柴 [mqms2].mp3",title:"爱情废材"},
+			{src:"../周杰伦 - 安静 [mqms2].mp3",title:"安静"},
+			{src:"../周杰伦 - 不该 (with aMEI) [mqms2].mp3",title:"不该"},
+			{src:"../周杰伦 - 彩虹 [mqms2].mp3",title:"彩虹"},
+			{src:"../周杰伦 - 超跑女神 [mqms2].mp3",title:"超跑女神"},
+			{src:"../周杰伦 - 超人不会飞 [mqms2].mp3",title:"超人不会飞"},
+			{src:"../周杰伦 - 床边故事 [mqms2].mp3",title:"床边故事"},
+			{src:"../周杰伦 - 大笨钟 [mqms2].mp3",title:"大笨钟"},
+			{src:"../周杰伦 - 稻香 [mqms2].mp3",title:"稻香"},
+			{src:"../周杰伦 - 断了的弦 [mqms2].mp3",title:"断了的弦"},
+			{src:"../周杰伦 - 告白气球 [mqms2].mp3",title:"告白气球"},
+			{src:"../周杰伦 - 给我一首歌的时间 [mqms2].mp3",title:"给我一首歌的时间"},
+			{src:"../周杰伦 - 公主病 [mqms2].mp3",title:"公主病"},
+			{src:"../周杰伦 - 好久不见 [mqms2].mp3",title:"好久不见"},
+			{src:"../周杰伦 - 红尘客栈 [mqms2].mp3",title:"红尘客栈"},
+			{src:"../周杰伦 - 花海 [mqms2].mp3",title:"花海"},
+			{src:"../周杰伦 - 简单爱 [mqms2].mp3",title:"简单爱"},
+			{src:"../周杰伦 - 开不了口 [mqms2].mp3",title:"开不了口"},
+			{src:"../周杰伦 - 可爱女人 [mqms2].mp3",title:"可爱女人"},
+			{src:"../周杰伦 - 兰亭序 [mqms2].mp3",title:"兰亭序"},
+			{src:"../周杰伦 - 龙卷风 [mqms2].mp3",title:"龙卷风"},
+			{src:"../周杰伦 - 龙战骑士 [mqms2].mp3",title:"龙战骑士"},
+			{src:"../周杰伦 - 美人鱼 [mqms2].mp3",title:"美人鱼"},
+			{src:"../周杰伦 - 梦想启动 [mqms2].mp3",title:"梦想启动"},
+			{src:"../周杰伦 - 迷迭香 [mqms2].mp3",title:"迷迭香"},
+			{src:"../周杰伦 - 明明就 [mqms2].mp3",title:"明明就"},
+			{src:"../周杰伦 - 哪里都是你 [mqms2].mp3",title:"哪里都是你"},
+			{src:"../周杰伦 - 牛仔很忙 [mqms2].mp3",title:"牛仔很忙"},
+			{src:"../周杰伦 - 蒲公英的约定 [mqms2].mp3",title:"蒲公英的约定"},
+			{src:"../周杰伦 - 前世情人 [mqms2].mp3",title:"前世情人"},
+			{src:"../周杰伦 - 青花瓷 [mqms2].mp3",title:"青花瓷"},
+			{src:"../周杰伦 - 晴天 [mqms2].mp3",title:"晴天"},
+			{src:"../周杰伦 - 时光机 [mqms2].mp3",title:"时光机"},
+			{src:"../周杰伦 - 世界未末日 [mqms2].mp3",title:"世界末末日"},
+			{src:"../周杰伦 - 说好的幸福呢 [mqms2].mp3",title:"说好的幸福呢"},
+			{src:"../周杰伦 - 说了再见 [mqms2].mp3",title:"说了再见"},
+			{src:"../周杰伦 - 说走就走 [mqms2].mp3",title:"说走就走"},
+			{src:"../周杰伦 - 四季列车 [mqms2].mp3",title:"四季列车"},
+			{src:"../周杰伦 - 算什么男人 [mqms2].mp3",title:"算什么男人"},
+			{src:"../周杰伦 - 天涯过客 [mqms2].mp3",title:"天涯过客"},
+			{src:"../周杰伦 - 甜甜的 [mqms2].mp3",title:"甜甜的"},
+			{src:"../周杰伦 - 听爸爸的话 [mqms2].mp3",title:"听爸爸的话"},
+			{src:"../周杰伦 - 听见下雨的声音 [mqms2].mp3",title:"听见下雨的声音"},
+			{src:"../周杰伦 - 听妈妈的话 [mqms2].mp3",title:"听妈妈的话"},
+			{src:"../周杰伦 - 退后 [mqms2].mp3",title:"退后"},
+			{src:"../周杰伦 - 我不配 [mqms2].mp3",title:"我不配"},
+			{src:"../周杰伦 - 心雨 [mqms2].mp3",title:"心雨"},
+			{src:"../周杰伦 - 阳光宅男 [mqms2].mp3",title:"阳光宅男"},
+			{src:"../周杰伦 - 爷爷泡的茶 [mqms2].mp3",title:"爷爷泡的茶"},
+			{src:"../周杰伦 - 夜曲 [mqms2].mp3",title:"夜曲"},
+			{src:"../周杰伦 - 英雄 [mqms2].mp3",title:"英雄"},
+			{src:"../周杰伦 - 雨下一整晚 [mqms2].mp3",title:"雨下一整晚"},
+			{src:"../周杰伦 - 止战之殇 [mqms2].mp3",title:"止战之殇"},
+			{src:"../周杰伦 - 最长的电影 [mqms2].mp3",title:"最长的电影"},
+			{src:"../周杰伦费玉清 - 千里之外 [mqms2].mp3",title:"千里之外"},
+			{src:"../周杰伦梁心颐 - 珊瑚海 [mqms2].mp3",title:"珊瑚海"},
+			{src:"../周杰伦杨瑞代 - 爱的飞行日记 [mqms2].mp3",title:"爱的飞行日记"},
+			{src:"../周杰伦袁咏琳 - 画沙 [mqms2].mp3",title:"画沙"},
+			{src:"../周杰伦袁咏琳 - 傻笑 [mqms2].mp3",title:"傻笑"}
+		);	
+		//数组下标
+		var index = -1;	
+		//播放状态 单曲循环：0 列表循环：1 随机播放：2
+		var playState = 1;
+		//创建音乐列表
+		function createBox(){
+			var html="";
+			for(var i=0;i<myMusics.length;i++){
+				html+="<li>"+(i+1)+"  <a href='javascript:clickName("+i+");'>"+myMusics[i].title+"</a></li>"
+			}
+			return html
+		}
+		//页面加载		
+		$(document).ready(function(){
+			$("#"+"box").append(createBox());
+			playMusic(1);
+			
+			//按钮"下一首"单击事件
+			$("#nextMusic").click(function(){
+				playMusic(1,1);
+			});
+			//按钮"上一首"单击事件
+			$("#lastMusic").click(function(){
+				playMusic(2);
+			});
+			////按钮"播放/暂停"单击事件
+			$("#playMusic").click(function(){
+				if($(this).val()=="播放"){
+					$(this).val("暂停");
+					document.getElementById("media").play();
+				}else if($(this).val()=="暂停"){
+					$(this).val("播放");
+					document.getElementById("media").pause();
+				}
+			});
+			
+			//快进
+			$("#fast").click(function(){
+				var media = document.getElementById("media");
+				media.currentTime+=5;
+			});
+			//快退
+			$("#rewind").click(function(){
+				var media = document.getElementById("media");
+				media.currentTime-=5;
+			});
+			//播放状态
+			$("#playState").change(function(){
+				playState = $(this).val();				
+			});
+			
+			$("li").mouseover(function(){
+				$(this).css("background-color","#F0F0F0");
+			});
+			
+			$("li").mouseout(function(){
+				$(this).css("background-color","#FFFFFF");
+				$($("li")[index]).css("background-color","#F0F0F0");
+			});
+			
+			
+		});
+		
+		//点击名字播放音乐
+		function clickName(i){
+			index=i;
+			playMusic(0);
+		}
+	
+		//音乐播放
+		function playMusic(s,n){
+			$("#playMusic").val("暂停");
+			if(s==0){//点击名字播放音乐
+			
+			}else if(s==1){//下一首
+				$("#playMusic").val("暂停");
+				if(playState==0){//单曲循环
+					if(n==0){
+					
+					}else if(n==1){
+						index++;
+						if(index>=myMusics.length){
+							index=0;
+						}
+					}
+				}else if(playState==1){//列表循环
+					index++;
+					if(index>=myMusics.length){
+						index=0;
+					}
+				}else if(playState==2){//随机播放
+					index = Math.floor(Math.random()*myMusics.length);
+				}
+			}else if(s==2){//上一首
+				index--;
+				if(index<0){
+					index=myMusics.length-1;
+				}
+			}
+			
+			
+			//修改audio资源路径
+			$("#media").attr("src",myMusics[index].src);
+			//音乐播放
+			$("#media").play;
+			//显示音乐名称
+			$("#musicTitle").text(myMusics[index].title);
+			$("title").text(myMusics[index].title);
+			//重置li列表背景色
+			$("#box").children("li").css("background-color","#FFFFFF");
+			$("#box").children("li").css("font-weight","normal");
+			
+			//修改播放音乐背景色
+			$($("#box").children("li")[index]).css("background-color","#F0F0F0");
+			$($("#box").children("li")[index]).css("font-weight","bold");
+			
+			$("#sliding").offset({left:60});
+		}
+		//时间获取
+		function timeupdate(){
+			//获取audio元素
+			var media = document.getElementById("media");
+			//音乐当前位置
+			var curr = Math.floor(media.currentTime);
+			//音乐长度
+			var dur = Math.floor(media.duration);
+			$("#totalTime").text("时长："+formatTime(dur));
+			$("#currTime").text("当前："+formatTime(curr));
+		}
+		//音乐计时格式
+		function formatTime(time){
+			
+			var h=0,i=0,s=parseInt(time);
+			if(s>60){
+				i=parseInt(s/60);
+				s=parseInt(s%60);
+				if(i > 60) {
+					h=parseInt(i/60);
+					i = parseInt(i%60);
+				}
+			}
+			var zero=function(v){
+				return (v>>0)<10?"0"+v:v;
+			};
+			return (zero(h)+":"+zero(i)+":"+zero(s));
+		};
+	</script>
+	</head>
+	
+	<body background="../周杰伦bg.jpg">
+		<h1 align="center"><font color=#F09512>周杰伦歌曲</font></h1>
+		<style>
+			body{
+				background-size: cover;
+			}
+		</style>
+		
+		<audio id="media" src="" autoplay="autoplay" onended="playMusic(1,0)" ontimeupdate="timeupdate()" ></audio>
+		
+		<div style="float:left;margin-left:550px;width:450px;height:200px;">
+				<p id="musicTitle"></p>
+				<p id="currTime" >当前：00:00:00</p>
+				<p id="totalTime" >时长：00:00:00</p>
+				
+				<input id="lastMusic" type="button" value="上一首" />
+				<input id="rewind" type="button" value="<<" />
+				<input id="playMusic" type="button" value="暂停" />
+				<input id="fast" type="button" value=">>" />
+				<input id="nextMusic" type="button" value="下一首" />
+				<select id="playState">
+					<option value="0">单曲循环</option>
+					<option value="1" selected>列表循环</option>
+					<option value="2">随机播放</option>
+				</select>
+				<ul id="box" style="border:1px solid black;padding:0px;height:300px;width:300px;overflow-y:auto;"></ul>
+		</div>
+	
+
+	</body>
+</html>

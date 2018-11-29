@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>数字专辑</title>
+	
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$(".main_visual").hover(function(){
+		$("#btn_prev,#btn_next").fadeIn()
+	},function(){
+		$("#btn_prev,#btn_next").fadeOut()
+	});
+	
+	$dragBln = false;
+	
+	$(".main_image").touchSlider({
+		flexible : true,
+		speed : 200,
+		btn_prev : $("#btn_prev"),
+		btn_next : $("#btn_next"),
+		paging : $(".flicking_con a"),
+		counter : function (e){
+			$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+		}
+	});
+	
+	$(".main_image").bind("mousedown", function() {
+		$dragBln = false;
+	});
+	
+	$(".main_image").bind("dragstart", function() {
+		$dragBln = true;
+	});
+	
+	$(".main_image a").click(function(){
+		if($dragBln) {
+			return false;
+		}
+	});
+	
+	timer = setInterval(function(){
+		$("#btn_next").click();
+	}, 5000);
+	
+	$(".main_visual").hover(function(){
+		clearInterval(timer);
+	},function(){
+		timer = setInterval(function(){
+			$("#btn_next").click();
+		},5000);
+	});
+	
+	$(".main_image").bind("touchstart",function(){
+		clearInterval(timer);
+	}).bind("touchend", function(){
+		timer = setInterval(function(){
+			$("#btn_next").click();
+		}, 5000);
+	});
+	
+});
+</script>
+	
+<link href="数字.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+	<style type="text/css">
+		
+		.e{margin-left: 55px;}
+		.p{margin-left: 15px;margin-right: 15px;}
+		.p1{margin: 15px;}
+		.e1{margin-right: 55px;}
+		
+	</style>
+	
+	
+	<h1 align="center">数字专辑</h1>
+	<div class="main_visual">
+	<div class="flicking_con">
+		<a href="#">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+	</div>
+	<div class="main_image">
+		<ul>
+			<li><a href="https://y.qq.com/n/yqq/album/004NYM2r41PgDD.html?g_f="><span class="img_3"></span></a></li>
+			<li><a href="https://y.qq.com/m/digitalbum/gold/index.html?_video=true&id=4026872#index/detail"><span class="img_4"></span></a></li>
+			<li><a href="https://y.qq.com/m/digitalbum/gold/index.html?_video=true&id=4065284#index/detail"><span class="img_1"></span></a></li>
+			<li><a href="https://y.qq.com/n/yqq/album/001XtPF21kfMXb.html?g_f="><span class="img_2"></span></a></li>
+			<li><a href="http://y.qq.com/msa/JessieJROSEEmpowerment/index_new.html?g_f=#"><span class="img_5"></span></a></li>
+		</ul>
+		<a href="javascript:;" id="btn_prev"></a>
+		<a href="javascript:;" id="btn_next"></a>
+	</div></div>
+		<h1 align="left" class="e">最新上架</h1>
+	<table align="center">
+		
+	<tr>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/001ZSsAs2gGdq0.html#stat=yqq.album_mall.toAlbum"><img src="szzj5.jpg"></a>
+			<p class="p" align="left">1÷x=1 (UNDIVIDED)</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/001XtPF21kfMXb.html#stat=yqq.album_mall.toAlbum"><img src="szzj6.jpg"></a>
+			<p class="p" align="left">我们在中场相遇</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/004NYM2r41PgDD.html#stat=yqq.album_mall.toAlbum"><img src="szzj7.jpg"></a>
+			<p class="p" align="left">神河传奇</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/0025IXav0ProHY.html#stat=yqq.album_mall.toAlbum"><img src="szzj8.jpg"></a>
+			<p class="p" align="left">SUITS&nbsp; OST&nbsp; (金装律师&nbsp; OST)</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/000QJp6f4aMhbE.html#stat=yqq.album_mall.toAlbum"><img src="szzj9.jpg" ></a>
+			<p class="p" align="left">  楼外楼&nbsp;&nbsp; 电视剧原声带</p>
+			
+		</td>
+		</tr>
+
+	</table>
+	<br/>
+	<br/>
+	<h1 align="left" class="e">本周热销</h1>
+	<table align="center">
+		
+	<tr>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/002Kz5Jo1uzHjz.html#stat=yqq.album_mall.toAlbum"><img src="szzj10.jpg"></a>
+			<p class="p" align="left">1989&nbsp; (Deluxe)&nbsp; (1989&nbsp;（豪华版）&nbsp;)</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/000nw1yB4XOs9j.html#stat=yqq.album_mall.toAlbum"><img src="szzj11.jpg"></a>
+			<p class="p" align="left">伟大的渺小</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/003OK4yP2MBOip.html#stat=yqq.album_mall.toAlbum"><img src="szzj12.jpg"></a>
+			<p class="p" align="left">reputation</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/001EVCZt2OFKYu.html#stat=yqq.album_mall.toAlbum"><img src="szzj13.jpg"></a>
+			<p class="p" align="left">未·LIVE</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/0019j13c2H7dWD.html#stat=yqq.album_mall.toAlbum"><img src="szzj14.jpg" ></a>
+			<p class="p" align="left">Evolve&nbsp; (进化)</p>
+			
+		</td>
+		</tr>
+
+	</table>
+	<br/>
+	<br/>
+	<h1 align="left" class="e">音乐人专区</h1>
+	<table align="center">
+		
+	<tr>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/003CzNyB0dZaMB.html#stat=yqq.album_mall.toAlbum"><img src="szzj15.jpg"></a>
+			<p class="p" align="left">爵士乐与不插电新编12首</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/001g04oF1j2YWC.html#stat=yqq.album_mall.toAlbum"><img src="szzj16.jpg"></a>
+			<p class="p" align="left">我愿意为你轻轻歌唱</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/004TSoOf1Ehr9l.html#stat=yqq.album_mall.toAlbum"><img src="szzj17.jpg"></a>
+			<p class="p" align="left"> 大自在</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/000rbhoy2OUEYK.html#stat=yqq.album_mall.toAlbum"><img src="szzj18.jpg"></a>
+			<p class="p" align="left">一只猴子&nbsp; 第一部曲</p>
+			
+		</td>
+		<td align="center" width="250px"><a href="https://y.qq.com/n/yqq/album/002zNyIu1e5iFj.html#stat=yqq.album_mall.toAlbum"><img src="szzj19.jpg" ></a>
+			<p class="p" align="left">步履不停</p>
+			
+		</td>
+		</tr>
+
+	</table>
+	<h2 align="left" class="e"><a href="https://y.qq.com/portal/album_mall.html">更多专辑</a></h2>
+	<h2 align="right" class="e1"><a href="zuoye.html">返回首页</a></h2>
+</body>
+</html>

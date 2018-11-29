@@ -1,0 +1,38 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>动态字符JavaScript</title>
+    <script language="JavaScript">
+        str = "JavaScript";
+        color1 = "blue";
+        color2 = "red";
+        fontsize = 20;
+        speed = 1000;
+        i = 0;
+        document.write("<p id = a></p>");
+        function print_str(str) {
+            length = str.length;
+            text1 = "<center><font face= arial size=" + fontsize + "><font color=" + color1 + ">"; // 设置字体1性质
+            text2 = "<font face= arial size=" + fontsize + "><font color=" + color2 + ">";  //设置字体2性质
+            // 将str分为三部分  str.substring(0,i) str.charAt(i) str.substring(i+1,length)
+			
+            text = text1;
+            text += str.substring(0,i);  //上面两行第一部分
+            text += text2 + str.charAt(i); // 第二部分
+            text += "<font face= arial size=" + fontsize + "><font color=" + color1 + ">" + str.substring(i+1,length);  //// 第三部分
+            text1 += "</font></font></center>";
+
+            // 如果已经运行到字符末尾了 换到字符第一位 否则到字符下一位
+        if (i == length -1) i =0;
+        else i+=1;
+            a.innerHTML = text;
+            }
+        // 记得打 冒号 " "
+        setInterval("print_str(str)",speed)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

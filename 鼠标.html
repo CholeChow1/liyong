@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title> 鼠标移上显示，鼠标移开隐藏 </title>  
+<script language="javascript">  
+ function mshow(obj)  
+    {  
+      document.getElementById("sub"+obj.id).style.visibility="visible";  
+    }  
+function mhidden(obj)  
+    {  
+      document.getElementById("sub"+obj.id).style.visibility="hidden";  
+    }     
+</script>  
+</head>  
+  
+<body>  
+<div id="menu1" onmouseover="mshow(this);" onmouseout="mhidden(this);">  
+administrators  
+</div>  
+<div id="submenu1" style="visibility:hidden; z-index:100";onmouseover="this.style.visibility='visible'">  
+<p>111</p>  
+<p>222</p>  
+<p>333</p>  
+</div>  
+</body>  
+</html>  

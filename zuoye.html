@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Chole 音乐</title>
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$(".main_visual").hover(function(){
+		$("#btn_prev,#btn_next").fadeIn()
+	},function(){
+		$("#btn_prev,#btn_next").fadeOut()
+	});
+	
+	$dragBln = false;
+	
+	$(".main_image").touchSlider({
+		flexible : true,
+		speed : 200,
+		btn_prev : $("#btn_prev"),
+		btn_next : $("#btn_next"),
+		paging : $(".flicking_con a"),
+		counter : function (e){
+			$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+		}
+	});
+	
+	$(".main_image").bind("mousedown", function() {
+		$dragBln = false;
+	});
+	
+	$(".main_image").bind("dragstart", function() {
+		$dragBln = true;
+	});
+	
+	$(".main_image a").click(function(){
+		if($dragBln) {
+			return false;
+		}
+	});
+	
+	timer = setInterval(function(){
+		$("#btn_next").click();
+	}, 5000);
+	
+	$(".main_visual").hover(function(){
+		clearInterval(timer);
+	},function(){
+		timer = setInterval(function(){
+			$("#btn_next").click();
+		},5000);
+	});
+	
+	$(".main_image").bind("touchstart",function(){
+		clearInterval(timer);
+	}).bind("touchend", function(){
+		timer = setInterval(function(){
+			$("#btn_next").click();
+		}, 5000);
+	});
+	
+});
+</script>
+	
+<link href="Untitled-2css.css" type="text/css" rel="stylesheet">
+	<style>
+		label {float: left;width: 10em;margin-right: 1em;text-align: right;}
+	
+	body{
+		background: url(bg.jpg) 0 0 no-repeat; background-size: 100%;}
+	
+	</style>
+	<script language="JavaScript">
+        str = "今天  又是充满希望的一天";
+        color1 = "blue";
+        color2 = "red";
+        fontsize = 20;
+        speed = 1000;
+        i = 0;
+        document.write("<p id = a></p>");
+        function print_str(str) {
+            length = str.length;
+            text1 = "<center><font face= arial size=" + fontsize + "><font color=" + color1 + ">"; // 设置字体1性质
+            text2 = "<font face= arial size=" + fontsize + "><font color=" + color2 + ">";  //设置字体2性质
+            // 将str分为三部分  str.substring(0,i) str.charAt(i) str.substring(i+1,length)
+            text = text1;
+            text += str.substring(0,i);  //上面两行第一部分
+            text += text2 + str.charAt(i); // 第二部分
+            text += "<font face= arial size=" + fontsize + "><font color=" + color1 + ">" + str.substring(i+1,length);  //// 第三部分
+            text1 += "</font></font></center>";
+
+            // 如果已经运行到字符末尾了 换到字符第一位 否则到字符下一位
+        if (i == length -1) i =0;
+        else i+=1;
+            a.innerHTML = text;
+            }
+		 // 记得打 冒号 " "
+        setInterval("print_str(str)",speed);
+		
+       
+		function p(){
+		var g=document.getElementById("kk");
+		g.src="555.jpg";}
+		function p1(){
+			var g1=document.getElementById("kk");
+			g1.src="444.jpg";
+		}
+		function q(){
+			var x=document.getElementById("gg");
+			x.src="T9.jpg";
+		}
+		function q1(){
+			var x1=document.getElementById("gg");
+			x1.src="T8.jpg";
+		}
+		function i2(){
+			var m=document.getElementById("tt");
+			m.src="L2.jpg";
+		}
+		function i1(){
+			var m1=document.getElementById("tt");
+	m1.src="L4.jpg";
+		}
+		function startime(){
+			var o=new Date();
+			var r=o.getHours();
+			var t=o.getMinutes();
+			var y=o.getSeconds();
+			t=checktime(t);
+			y=checktime(y);
+		     var k=document.getElementById("kiki");
+			k.innerHTML="北京时间"+":"+"&nbsp"+"&nbsp"+r+":"+t+":"+y;
+			t=setTimeout(function(){startime();},1000);//每隔1000毫秒执行一次startime（）函数
+			
+		}
+		
+		function checktime(i){
+			if(i<10){
+				i="0"+i;
+			}
+			return i;
+		}
+
+window.onload=function(){
+	startime();
+		
+
+var oUl=document.getElementById('one');
+
+var aLi=oUl.children;// 获取第一级菜单的四个子标签
+
+for (i=0;i<aLi.length;i++) {
+
+aLi[i].onmouseover=function(){
+
+this.children[0].style.display='block';
+
+};
+
+aLi[i].onmouseout=function(){
+
+this.children[0].style.display='none';
+
+};
+
+}
+
+}
+function b5(){
+		document.body.style.background="url('背景5.jpg')";
+	}
+		function b6(){
+		document.body.style.background="url('背景6.jpg')";
+	}
+		function b7(){
+		document.body.style.background="url('背景7.jpeg')";
+	}
+		function b8(){
+		document.body.style.background="url('背景8.jpg')";
+	}
+		function b9(){
+		document.body.style.background="url('背景9.jpg')";
+	}
+		function b10(){
+		document.body.style.background="url('背景10.jpg')";
+	}
+		function b11(){
+		document.body.style.background="url('1.jpg')";
+	}
+		function b12(){
+		document.body.style.background="url('2.jpg')";
+	}
+		
+    </script>
+</head>
+
+<body  background="622762d0f703918f85d800a8503d269759eec442.jpg" id="body1">
+	
+	<div id="time"><h1 align="center" id="kiki" style="color: #F06410">+11</h1>
+	
+	</div>
+	<div class="head" style="font-size: 80px;color: #08D7F0">
+   Chole音乐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<font size="7" color="#B6EF04" face="华文行楷">让音乐伴你同行&nbsp;&nbsp;&nbsp;让人生更加精彩</font>
+	
+	</div>
+	
+	<div id="all">
+		<div id="head">
+		<div id="head_left"></div>
+			<div id="head_foot">
+			<div id="head_foot_t">
+				<div class="menu"><a href="乡村音乐.html" target="new" class="y1">乡村音乐</a></div>
+				<div class="menu"><a href="minyao.html" class="y2">民谣</a></div>
+				<div class="menu"><a href="爵士乐.html" target="new" class="y3">爵士乐</a></div>
+				<div class="menu"><a href="节奏布鲁斯.html" class="y4">节奏布鲁斯</a></div>
+				<div class="menu"><a href="摇滚乐.html" class="y5">摇滚乐</a></div>
+				<div class="menu"><a href="灵歌.html" class="y6">灵歌</a></div>
+				<div class="menu"><a href="福音音乐.html" class="y7">福音歌曲</a></div>
+				<div class="menu"><a href="流行美声.html" class="y8">流行美声</a></div>
+				<div class="menu"><a href="hophip.html" class="y9">HIP-HOP音乐</a></div>
+				<div class="menu"><a href="电影音乐.html" class="y10">电影音乐</a></div>
+				<div class="menu"><a href="电子音乐.html" class="y11">电子音乐</a></div>
+				<div class="menu"><a href="世界音乐.html" class="y12">世界音乐</a></div>
+				<div class="menu"><a href="新世纪音乐.html" class="y13">新世纪音乐</a></div>
+				<div class="menu"><a href="前卫音乐.html" class="y14">前卫音乐</a></div>
+				</div>
+			<div id="head_foot_b">
+				<div class="head_foot_b_t">
+					<div class="menu"><a href="登录.html" class="t1">登录</a></div>
+					<div class="menu"><a href="注册.html" target="new" class="t2">注册</a></div>
+					<div class="menu"><a href="#壁纸" class="t3">壁纸</a></div>
+					<div class="menu"><a href="经典.html" class="t4">经典</a></div>
+					<div class="menu"><a href="影视.html" class="t5">影视</a></div>
+					<div class="menu"><a href="巅峰热歌榜.html" class="t6">巅峰热歌榜</a></div>
+					<div class="menu"><a href="巅峰新歌榜.html" class="t7">巅峰新歌榜</a></div>
+					<div class="menu"><a href="歌手.html" class="t8">歌手</a></div>
+					<div class="menu"><a href="分类歌单.html" class="t9">分类歌单</a></div>
+					<div class="menu"><a href="精选.html" class="t10">精选</a></div>
+					<div class="menu"><a href="数字专辑.html" class="t11">数字专辑</a></div>
+					<div class="menu"><a href="https://y.qq.com/portal/radio.html" class="t12">电台</a></div>
+					<div class="menu"><a href="精品推荐.html" class="t13">精品推荐</a></div>
+					<div class="menu"><a href="https://y.qq.com/portal/search.html#page=1&searchid=1&remoteplace=txt.yqq.top&t=song&w=%E6%90%9E%E7%AC%91%E6%AE%B5%E5%AD%90" class="t14">搞笑段子</a></div>
+					<div class="menu"><a href="jQuery九宫格大转盘抽奖/index.html" class="t15">抽奖</a></div>
+					<div class="menu"><a href="CSS3鼠标跟随眼球转动小猫动画/index.html" class="t16">可爱小猫咪</a></div>
+					<div class="menu"><a href="爱心.html" class="t17">唯美爱心</a></div>
+				</div>
+				<div class="head_foot_b_t">
+				<div class="menu"><a href="zhoujielunjieshao.html"><font>周杰伦</font></a></div>
+					<div class="menu"><a href="陈奕迅个人主页.html"><font>陈奕迅</font></a></div>
+					<div class="menu"><a href="linjunjiegerenziliao.html"><font>林俊杰</font></a></div>
+					<div class="menu"><a href="田馥甄主页.html">田馥甄</a></div>
+					<div class="menu"><a href="tailegerenziliao.html" class="g1">泰勒斯威夫特</a></div>
+					<div class="menu"><a href="薛之谦个人主页.html" class="g2">薛之谦</a></div>
+					<div class="menu"><a href="张学友个人主页.html"><font>张学友</font></a></div>
+					<div class="menu"><a href="杨宗纬个人主页.html" class="g3">杨宗纬</a></div>
+					<div class="menu"><a href="邓紫棋个人主页.html" class="g4">邓紫棋</a></div>
+					<div class="menu"><a href="华晨宇个人主页.html" class="g5">华晨宇</a></div>
+					<div class="menu"><a href="张碧晨个人主页.html" class="g6">张碧晨</a></div>
+					<div class="menu"><a href="汪苏泷个人主页.html"><font>汪苏泷</font></a></div>
+					<div class="menu"><a href="许嵩个人主页.html" class="g7">许嵩</a></div>
+					<div class="menu"><a href="庄心妍个人主页.html" class="g8">庄心妍</a></div>
+					<div class="menu"><a href="五月天个人主页.html" class="g9">五月天</a></div>
+					<div class="menu"><a href="张杰个人主页.html" class="g10">张杰</a></div>
+					<div class="menu"><a href="刘若英个人主页.html" class="g11">刘若英</a></div>
+				
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="main_visual">
+	<div class="flicking_con">
+		<a href="#">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+	</div>
+	<div class="main_image">
+		<ul>
+			<li><a href="https://y.qq.com/n/yqq/singer/002o6BYw1mbNCO.html#stat=y_new.album.header.singername"><span class="img_3"></span></a></li>
+			<li><a href="https://y.qq.com/n/yqq/playsquare/3559756243.html#stat=y_new.index.playlist.pic"><span class="img_4"></span></a></li>
+			<li><a href="https://y.qq.com/portal/search.html#page=1&searchid=1&remoteplace=txt.yqq.top&t=song&w=%E8%90%A7%E6%95%AC%E8%85%BE%E6%9E%97%E5%AE%A5%E5%98%89"><span class="img_1"></span></a></li>
+			<li><a href="https://y.qq.com/portal/search.html#page=1&searchid=1&remoteplace=txt.yqq.top&t=song&w=%E6%97%A0%E9%99%90%E6%AD%8C%E8%B0%A3%E5%AD%A3"><span class="img_2"></span></a></li>
+			<li><a href="https://y.qq.com/portal/search.html#page=1&searchid=1&remoteplace=txt.yqq.top&t=song&w=%E7%8E%8B%E5%8A%9B%E5%AE%8F"><span class="img_5"></span></a></li>
+		</ul>
+		<a href="javascript:;" id="btn_prev"></a>
+		<a href="javascript:;" id="btn_next"></a>
+	</div>
+</div>
+
+		<div id="body">
+		<ul id="one">
+
+<li class="one_list"> 我喜欢
+
+<ul class="two">
+
+
+	<li class="h1"><a href="https://y.qq.com/portal/profile.html#sub=song&tab=like&">前往试听</a></li>
+	<li> 乌克丽丽 </li>
+
+<li> 鞋子特大号 </li>
+
+<li> 疗伤烧肉粽 </li>
+	<li><font size="+3">......</font></li>
+</ul>
+
+</li>
+
+<li class="one_list"> 我创建的歌单
+
+<ul class="two">
+
+<li class=h1> <a href="https://y.qq.com/portal/profile.html#sub=other&tab=create&">前往查看</a> </li>
+
+<li> 我喜欢 </li>
+
+<li> 运动 </li>
+
+<li> 最常听 </li>
+<li><font size="+3">......</font></li>
+</ul>
+
+</li>
+
+<li class="one_list"> 关注
+
+<ul class="two">
+
+<li class=h1><a href="https://y.qq.com/portal/profile.html#sub=singer&tab=focus&"> 点击查看</a> </li>
+
+<li> 周杰伦</li>
+
+<li> Taylor Swift </li>
+
+<li> 冯提莫 </li>
+<li><font size="+3">......</font></li>
+</ul>
+
+</li>
+
+<li class="one_list">粉丝
+<ul class="two">
+	<li class=h1><a href="https://y.qq.com/portal/profile.html#sub=other&tab=fans&">查看粉丝</a> </li>
+
+<li> 暂时没有粉丝</li>
+
+<li> 未来可能会有 </li>
+
+<li> 也有可能没有</li>
+<li><font size="+3">......</font></li>
+
+</ul>
+</li>
+
+</ul>
+		</div>
+		<div id="last"></div>
+		  
+	</div>
+	<div class="one" style="font-size: 80px">
+	    <marquee behavior="alternate" height="120px" direction="left" loop="true" scrolldelay="1">
+			<font color="#18BB76" face="华文隶书">&nbsp;&nbsp;hi&nbsp;Boys&nbsp;and&nbsp;Girls!&nbsp;Good&nbsp;Lucky!</font></marquee>
+	
+	</div>
+	
+	<br/>
+	<table align="left">
+	<tr>
+		
+		<td align="right">
+			<p align="center"><font color="#2EF118" size="+2">一次就好-杨宗纬</font></p>
+			<p align="center" class="pppp"><a href="jplayer/一次就好.html">点击前往试听</a></p>
+			</td>
+		<td>
+			<p align="center"><font color="#6010F1" size="+2">稻香-周杰伦</font></p>
+		<p align="center" class="pppp"><a href="jplayer/稻香.html">点击前往试听</a></p>
+		</td>
+		</tr>
+	</table>
+	
+		<table align="right">
+	<tr>
+		<td>
+			<p align="center"><font color="#1CF0A4" size="+2">love story-Taylor swift</font></p>
+		<p align="center" class="pppp"><a href="jplayer/love story.html">点击前往试听</a></p>
+		</td>
+		
+		<td align="right">
+			<p align="center"><font color="#E4C80F" size="+2">青花瓷—周杰伦</font></p>
+			<p align="center" class="pppp"><a href="jplayer/青花瓷.html">点击前往试听</a></p>
+		</tr>
+	</table><br/>
+	<table>
+	<tr>
+		<td width="450px">
+		<a href="zhoujielunjieshao.html"><img id="kk" src="096363262434260779031519808.jpg" border="0" width="450px" height="500px" usemap="#plantmap" alt="你找的页面飞到外天空去了" title="点击可查看歌手资料哦" onMouseMove="p()" onMouseOut="p1()"></a>
+			<h1 align="center">歌手周杰伦</h1><br/>
+			<h2 align="center">代表作品</h2>
+			<h3 align="center">稻香</h3>
+			<h3 align="center">晴天</h3>
+			<h3 align="center">告白气球</h3>
+			<h3 align="center">七里香</h3>
+			<h3 align="center"><font color="#F80329" class="p"><a href="tingmao/周杰伦歌曲.html">点击可试听其部分歌曲哦</a></font></h3>
+		
+		</td>
+		<td width="450px">
+			<a href="tailegerenziliao.html"><img src="T1.jpg" width="450px" height="500px" title="点击可查看歌手资料哦" id="gg" onMouseMove="q()" onMouseOut="q1()"></a>
+			<h1 align="center">歌手泰勒斯威夫特</h1><br/>
+			<h2 align="center">代表作品</h2>
+			<h3 align="center">love story</h3>
+			<h3 align="center">long live</h3>
+			<h3 align="center">back to december</h3>
+			<h3 align="center">shake it off</h3>
+			<h3 align="center"><font color="#F80329" class="p"><a href="tingmao/泰勒歌曲.html">点击可试听其部分歌曲哦</a></font></h3>
+		</td>
+		<td width="450px">
+		<a href="linjunjiegerenziliao.html"><img src="L1.jpg" width="450px" height="500px" title="点击可查看歌手资料哦" id="tt" onMouseMove="i2()" onMouseOut="i1()"></a>
+			<h1 align="center">歌手林俊杰</h1><br/>
+			<h2 align="center">代表作品</h2>
+			<h3 align="center">醉赤壁</h3>
+			<h3 align="center">他说</h3>
+			<h3 align="center">江南</h3>
+			<h3 align="center">当你</h3>
+			<h3 align="center"><font color="#F80329" class="p"><a href="tingmao/林俊杰歌曲.html">点击可试听其部分歌曲哦</a></font></h3>
+		</td>
+		
+	
+		
+		
+		</tr>
+	
+	</table>
+	<div class="pizhi">
+		<a id="壁纸"><h1 align="center"><font color="#0FE7BB">精美壁纸</font></h1></a>
+	<h3 align="center">鼠标左键点击图片即可更换想要的壁纸哦</h3>
+	<table>
+		<tr align="center"><h2 align="center">梦幻的城市夜景</h2></tr>
+		<tr><img src="背景5.jpg" onClick="b5()"></tr>
+	<tr><h2 align="center">唯美风景</h2></tr>
+		<tr><img src="背景6.jpg" onClick="b6()"></tr>
+		<tr><h2 align="center">冰雪奇缘</h2></tr>
+		<tr><img src="背景7.jpeg" onClick="b7()"></tr>
+		<tr><h2 align="center">手绘卡通</h2></tr>
+		<tr><img src="背景8.jpg" onClick="b8()"></tr>
+		<tr><h2 align="center">涂鸦个性</h2></tr>
+		<tr><img src="背景9.jpg" onClick="b9()"></tr>
+		<tr><h2 align="center">忧郁小猫咪</h2></tr>
+		<tr><img src="背景10.jpg" onClick="b10()"></tr>
+		<tr align="center"><h2 align="center">纱雾小姐姐</h2></tr>
+		<tr><img src="1.jpg" onClick="b11()"></tr>
+		<tr><img src="2.jpg" onClick="b12()"></tr>
+	
+	
+	
+	
+		</table>
+	
+	</div>
+</body>
+</html>

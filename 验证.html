@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+   
+    <title>检查页面</title>
+  </head>
+
+  <body onLoad="g()" background="背景1.jpeg">
+     <script type="text/javascript">
+		 function g(){
+			  alert("登录成功");
+			 var p=prompt("请输入你的名字,让我们确认一下你的身份：","");
+			 if(p=="李勇"){alert("验证通过,欢迎李勇回来");
+						window.location.href="zuoye.html";}
+			 else {alert("验证失败，请您重新登录");
+				  window.location.href="登录.html";}
+    }
+     </script>
+  </body>
+</html>

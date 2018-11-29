@@ -1,0 +1,97 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	  <meta charset="utf-8">
+    <title>注册页面</title>
+   
+   
+  </head> 
+
+  <body onLoad="abc()" background="背景2.jpg">
+	   <script type="text/javascript">
+		function abc(){
+			 var num1 =Math.random();
+                var num2 =Math.random();
+                var num3 =Math.random();
+                var num4 =Math.random();
+   num1=Math.ceil(num1*10);
+			num2=Math.ceil(num2*10);
+			num3=Math.ceil(num3*10);
+			num4=Math.ceil(num4*10);
+			
+                var num=num1 + num2 + num3 + num4;
+			loginForm.verification1.value=num;
+			loginForm.verification2.value=num1+"+"+num2+"+"+num3+"+"+num4+"="+"?";
+		}
+        function loginCheck() {         
+
+            if(loginForm.userName.value == "") {
+                alert("用户名不能为空，请输入用户名！");
+                loginForm.userName.focus();
+                return false;
+            }
+		
+            if(loginForm.userPassword.value == "") {
+                alert("密码不能为空，请输入密码！");
+                loginForm.userPassword.focus();
+                return false;
+            }
+			
+            if(loginForm.verification2.value == "") {
+                alert("验证码不能为空，请输入验证码！");
+                loginForm.verification2.focus();
+                return false;
+            }
+            if(loginForm.verification2.value != loginForm.verification1.value) {
+                alert("验证码错误！");
+                loginForm.verification2.focus();
+				window.location.href="注册.html";
+                return false;
+            }
+		
+
+            return true;
+
+		}</script>
+    <form name="loginForm" action="验证2.html" method="post" onsubmit="return loginCheck();">
+        <table align="center">
+            <tr align="center">
+                <td><h1>欢迎注册</h1></td>
+            </tr>
+            <tr>
+                <td>用户名：</td>
+                <td><input name="userName" type="text"/></td>
+            </tr>
+            <tr>
+                <td>密  码：</td>
+                <td><input name="userPassword" type="password"/></td>
+            </tr>
+			<tr>
+			<td>真实姓名:</td>
+				<td><input type="text"></td>
+			</tr>
+          
+      
+			
+            <span style="color:#339999;background-color: rgb(255, 255, 255);"> <!-- 写一个隐藏域，用来进行验证比较 --></span>
+             <tr>
+                <td><input name="verification1" type="hidden"></td>
+             </tr>
+             <tr>
+                <td>验证码：</td>
+                 <td>
+                    <input name="verification2" type="text" style="width: 100px;">
+                   
+                 </td>
+             </tr>
+             <tr>
+                <td>
+                    <input type="submit" value="注册">
+                    <input type="reset" value="重置">
+                </td>
+             </tr>
+        </table>
+    </form>
+  </body>
+</html>

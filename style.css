@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+.containter{width: 1350px;height: 1000px;background: #94E185}
+.header{width: 1350px;height: 200px;background:#23DF15}
+.content{width: 1350px;height: 850px;background: #1AD3B9}
+.con-left{width: 450px;height: 850px;background:#0DD7BB; float: left}
+.con-right{width: 450px;height: 850px;background:#1707EC; float: left}
+.con-me{width: 450px;height: 850px;background: #8E13EB;float: left}
+

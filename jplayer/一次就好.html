@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>一次就好</title>
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.4">
+<meta name="MobileOptimized" content="240">
+
+<link href="css/blue.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="js/lrc.js"></script>
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	outline:none;
+}
+ul, ol, dl {
+	list-style: none;
+}
+
+.music_box{margin:50px auto;width:422px;}
+.content {width: 402px;height:200px;overflow:hidden;padding:10px;background:#ccc;}
+#lrc_list{margin:10px auto;background:#ccc;}
+#lrc_list li{font:normal 14px/2.1 'microsoft yahei';text-align:center;}
+#lrc_list li.hover {color:red;font-weight:bold;}
+</style>
+
+<script>
+//<![CDATA[
+$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				mp3:"../一次.mp3" //mp3的播放地址
+			});
+		},
+		timeupdate: function(event) {
+			if(event.jPlayer.status.currentTime==0){
+				time = "";
+			}else {
+				time = event.jPlayer.status.currentTime;
+			}
+		},
+		play: function(event) {
+			//点击开始方法调用lrc。start歌词方法 返回时间time
+			$.lrc.start($('#lrc_content').val(), function() {
+				return time;
+			});
+		},
+		ended:function(event){
+			$("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+		},
+		swfPath: "/js",  		//存放jplayer.swf的决定路径
+		solution:"html, flash", //支持的页面
+		supplied: "mp3",		//支持的音频的格式
+		wmode: "window"
+	});
+});
+//]]>
+</script>
+</head>
+<body background="../背景8.jpg">
+	<h1 align="center"><font color="#E8C40A">一次就好-杨宗纬</font></h1>
+	
+<textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;"> 
+	[00:00.00] 杨宗纬 - 一次就好
+[00:02.00] 电影《夏洛特烦恼》暖水曲
+[00:05.00] 作词：陈曦
+[00:08.00] 作曲：董冬冬
+[00:11.00] 歌词编辑：果果
+[00:14.00]QQ:765708831
+[00:17.00]Lrc 歌词网：www.90lrc.cn
+[00:20.00]
+[00:25.54] 想看你笑
+[00:28.39] 想和你闹
+[00:30.45] 想拥你入我怀抱
+[00:36.26] 上一秒红着脸在争吵
+[00:41.68] 下一秒转身就能和好
+[00:48.25] 不怕你哭
+[00:51.14] 不怕你叫
+[00:53.01] 因为你是我的骄傲
+[00:58.91] 一双眼睛追着你乱跑
+[01:04.41] 一颗心早已经准备好
+[01:15.97] 一次就好我带你去看天荒地老
+[01:21.62] 在阳光灿烂的日子里开怀大笑
+[01:27.25] 在自由自在的空气里吵吵闹闹
+[01:32.43] 你可知道我唯一的想要
+[01:38.36] 世界还小我陪你去到天涯海角
+[01:44.13] 在没有烦恼的角落里停止寻找
+[01:49.84] 在无忧无虑的时光里慢慢变老
+[01:55.09] 你可知道我全部的心跳
+[02:00.59] 随你跳
+[02:03.31]
+[02:24.13] 想看你笑
+[02:26.76] 想和你闹
+[02:28.98] 想拥你入我怀抱
+[02:34.64] 上一秒红着脸在争吵
+[02:40.25] 下一秒转身就能和好
+[02:46.88] 不怕你哭
+[02:49.68] 不怕你叫
+[02:51.54] 因为你是我的骄傲
+[02:57.52] 一双眼睛追着你乱跑
+[03:02.84] 一颗心早已经准备好
+[03:14.45] 一次就好我带你去看天荒地老
+[03:20.18] 在阳光灿烂的日子里开怀大笑
+[03:25.88] 在自由自在的空气里吵吵闹闹
+[03:31.38] 你可知道我唯一的想要
+[03:36.88] 世界还小我陪你去到天涯海角
+[03:42.78] 在没有烦恼的角落里停止寻找
+[03:48.48] 在无忧无虑的时光里慢慢变老
+[03:57.46] 你可知道我全部的心跳
+[04:04.45] 随你跳
+[04:08.41]  
+</textarea>
+<div class="music_box">
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio">
+  <div class="jp-type-single">
+    <div class="jp-gui jp-interface">
+      <ul class="jp-controls">
+        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+        <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+        <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+        <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+        <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+      </ul>
+      <div class="jp-progress">
+        <div class="jp-seek-bar">
+          <div class="jp-play-bar"></div>
+        </div>
+      </div>
+      <div class="jp-volume-bar">
+        <div class="jp-volume-bar-value"></div>
+      </div>
+      <div class="jp-time-holder">
+        <div class="jp-current-time"></div>
+        <div class="jp-duration"></div>
+        <ul class="jp-toggles">
+          <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+          <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="jp-title">
+      <ul>
+        <li>源码之家</li>
+      </ul>
+    </div>
+    <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+  </div>
+</div>
+<div class="content">
+    <ul id="lrc_list">
+    	<li>点击开始播放……</li>
+    </ul>
+</div>
+</div>
+
+
+</body>
+</html>

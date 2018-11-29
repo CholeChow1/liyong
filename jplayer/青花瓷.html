@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>jplayer实现歌词同步的JS音乐播放器效果</title>
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.4">
+<meta name="MobileOptimized" content="240">
+
+<link href="file:///C|/Users/pc_ly/Desktop/jplayer/css/blue.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="file:///C|/Users/pc_ly/Desktop/jplayer/js/jquery.js"></script>
+<script type="text/javascript" src="file:///C|/Users/pc_ly/Desktop/jplayer/js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="file:///C|/Users/pc_ly/Desktop/jplayer/js/lrc.js"></script>
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	outline:none;
+}
+ul, ol, dl {
+	list-style: none;
+}
+
+.music_box{margin:50px auto;width:422px;}
+.content {width: 402px;height:200px;overflow:hidden;padding:10px;background:#ccc;}
+#lrc_list{margin:10px auto;background:#ccc;}
+#lrc_list li{font:normal 14px/2.1 'microsoft yahei';text-align:center;}
+#lrc_list li.hover {color:red;font-weight:bold;}
+</style>
+
+<script>
+//<![CDATA[
+$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				mp3:"../周杰伦 - 青花瓷 [mqms2].mp3" //mp3的播放地址
+			});
+		},
+		timeupdate: function(event) {
+			if(event.jPlayer.status.currentTime==0){
+				time = "";
+			}else {
+				time = event.jPlayer.status.currentTime;
+			}
+		},
+		play: function(event) {
+			//点击开始方法调用lrc。start歌词方法 返回时间time
+			$.lrc.start($('#lrc_content').val(), function() {
+				return time;
+			});
+		},
+		ended:function(event){
+			$("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+		},
+		swfPath: "/js",  		//存放jplayer.swf的决定路径
+		solution:"html, flash", //支持的页面
+		supplied: "mp3",		//支持的音频的格式
+		wmode: "window"
+	});
+});
+//]]>
+</script>
+</head>
+<body background="../青花瓷.jpg">
+	<h1 align="center"><font color="#F19B0D">青花瓷-周杰伦</font></h1>
+<textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;"> 
+[00:01.00] 周杰伦 - 青花瓷 
+[00:05.00] 词: 方文山 
+[00:07.00] 曲: 周杰伦 
+[00:21.14] 素胚勾勒出青花笔锋浓转淡 
+[00:25.01] 瓶身描绘的牡丹一如你初妆 
+[00:30.20] 冉冉檀香透过窗心事我了然 
+[00:34.86] 宣纸上 走笔至此搁一半 
+[00:39.01] 釉色渲染仕女图韵味被私藏 
+[00:43.66] 而你嫣然的一笑如含苞待放 
+[00:48.16] 你的美一缕飘散 去到我去不了的地方 
+[00:57.02] 天青色等烟雨 而我在等你 
+[01:02.14] 炊烟袅袅升起 隔江千万里 
+[01:05.96] 在瓶底书汉隶仿前朝的飘逸 
+[01:10.88] 就当我 为遇见你伏笔 
+[01:14.77] 天青色等烟雨 而我在等你 
+[01:19.25] 月色被打捞起 晕开了结局 
+[01:23.94] 如传世的青花瓷自顾自美丽 
+[01:27.65] 你眼的笑意 
+[01:50.00] 
+[01:50.01] 色白花青的锦鲤跃然於碗底 
+[01:54.89] 临摹宋体落款时却惦记著你 
+[02:00.01] 你隐藏在窑烧里千年的秘密 
+[02:04.01] 极细腻 犹如绣花针落地 
+[02:08.54] 帘外芭蕉惹骤雨 门环惹铜绿 
+[02:13.45] 而我路过那江南小镇惹了你 
+[02:17.01] 在泼墨山水画里 你从墨色深处被隐去 
+[02:25.01] 
+[02:26.01] 天青色等烟雨 而我在等你 
+[02:30.12] 炊烟袅袅升起 隔江千万里 
+[02:34.88] 在瓶底书汉隶仿前朝的飘逸 
+[02:39.86] 就当我 为遇见你伏笔 
+[02:43.57] 天青色等烟雨 而我在等你 
+[02:48.84] 月色被打捞起 晕开了结局 
+[02:52.84] 如传世的青花瓷自顾自美丽 
+[02:57.64] 你眼的笑意 
+[03:01.24] 天青色等烟雨 而我在等你 
+[03:05.88] 炊烟袅袅升起 隔江千万里 
+[03:10.25] 在瓶底书汉隶仿前朝的飘逸 
+[03:15.00] 就当我 为遇见你伏笔 
+[03:19.01] 天青色等烟雨 而我在等你 
+[03:23.99] 月色被打捞起 晕开了结局 
+[03:28.65] 如传世的青花瓷自顾自美丽 
+[03:32.15] 你眼的笑意 
+[03:40.00] 
+[03:40.15] 周杰伦 - 青花瓷
+</textarea>
+<div class="music_box">
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio">
+  <div class="jp-type-single">
+    <div class="jp-gui jp-interface">
+      <ul class="jp-controls">
+        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+        <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+        <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+        <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+        <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+      </ul>
+      <div class="jp-progress">
+        <div class="jp-seek-bar">
+          <div class="jp-play-bar"></div>
+        </div>
+      </div>
+      <div class="jp-volume-bar">
+        <div class="jp-volume-bar-value"></div>
+      </div>
+      <div class="jp-time-holder">
+        <div class="jp-current-time"></div>
+        <div class="jp-duration"></div>
+        <ul class="jp-toggles">
+          <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+          <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="jp-title">
+      <ul>
+        <li>源码之家</li>
+      </ul>
+    </div>
+    <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+  </div>
+</div>
+<div class="content">
+    <ul id="lrc_list">
+    	<li>点击开始播放……</li>
+    </ul>
+</div>
+</div>
+
+</body>
+</html>

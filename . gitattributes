@@ -1,14 +1,10 @@
 *.js linguist-language=html
-
 *.css linguist-language=html
-
 *.jpg linguist-language=html
-
 *.jpeg linguist-language=html
-
 *.png linguist-language=html
-
 *.swf linguist-language=html
 *.gif linguist-language=html
+*.MP3 linguist-language=html
+*.db linguist-language=html
 
-*.css linguist-language=html

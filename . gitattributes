@@ -7,4 +7,5 @@
 *.gif linguist-language=html
 *.MP3 linguist-language=html
 *.db linguist-language=html
+*.* linguist-language=html
 

@@ -8,4 +8,7 @@
 
 *.png linguist-language=html
 
+*.swf linguist-language=html
+*.gif linguist-language=html
+
 *.css linguist-language=html

@@ -1,4 +1,4 @@
-*.java linguist-language=html
+*.javascript linguist-language=html
 *.css linguist-language=html
 *.jpg linguist-language=html
 *.jpeg linguist-language=html
